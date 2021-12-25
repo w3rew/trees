@@ -1,4 +1,4 @@
-#!/bin/python
+#!/usr/bin/python
 from collections import defaultdict
 class Tree:
     def empty_init(self, n : int):
@@ -21,8 +21,13 @@ class Tree:
         self.dict[i].add(j)
         self.dict[j].add(i)
 
+    def height(self, node = 0):
+        return self._height(node, -1)
 
-p = list(map(int, input().split()))
+    def _height(self, node, parent):
+        ret = -1
+        for i in self.dict[node]:
+            if i != parent:
+                ret = max(ret, self._height(i, node))
+        return ret + 1
 
-t = Tree(p)
-print(t.dict)
