@@ -22,5 +22,5 @@ def generate_tree(n, h):
 n = int(argv[1])
 h = int(argv[2])
 
-print(generate_tree(n, h).dict)
+print(generate_tree(n, h).to_dot())
 

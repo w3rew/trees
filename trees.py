@@ -30,4 +30,10 @@ class Tree:
             if i != parent:
                 ret = max(ret, self._height(i, node))
         return ret + 1
-
+    def to_dot(self):
+        s = "strict graph {\n"
+        for i in self.dict:
+            for j in self.dict[i]:
+                s += "{} -- {}\n".format(i, j)
+        s += "}"
+        return s
